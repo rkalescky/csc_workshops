@@ -1,0 +1,110 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{minted}
+
+\mode<presentation>
+\setminted{fontsize=\scriptsize,linenos}
+
+\title{SMU CSC Workshop Series: Introduction to Using M2}
+\author{Robert Kalescky}
+\date{Spring 2019}
+\author{Robert Kalescky (rkalescky@smu.edu)}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\input{csc_info.tex}
+
+\part{ManeFrame II (M2)}
+
+\section{Hardware}
+
+\begin{frame}
+\frametitle{ManeFrame II Node Types}
+
+\end{frame}
+
+\section{File Systems}
+
+\section{Environment}
+
+\part{Accessing ManeFrame II (M2)}
+
+\section{SSH}
+
+\begin{frame}
+\frametitle{Accessing ManeFrame II (M2)}
+\begin{itemize}
+\item M2 is access via Secure Shell (SSH)
+\item SSH provides command line access to M2's login nodes
+\item Graphical applications can run from M2 via X11-forwarding
+\item M2 has five login nodes all accessible via \texttt{m2.smu.edu}
+\end{itemize}
+\end{frame}
+
+\section{SFTP}
+
+\begin{frame}
+
+\end{frame}
+
+\part{Submitting Jobs on ManeFrame II (M2)}
+
+\section{Resource Management}
+
+\begin{frame}
+\frametitle{Resource Management}
+\begin{itemize}
+\item Compute resources are shared by all users
+\item Queue systems manage access to specific compute resources
+\item There are many queue systems around: Moab, Torque, LoadLeveler, Condor,
+      Oracle Grid Engine, Argent Job Scheduler, Platform LSF, etc.
+\item M2 uses Slurm (or Simple Linux Utility for Resource Management)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Resource Allocation}
+\begin{itemize}
+\item M2 resource allocation is governed by a fair-share factor
+\begin{itemize}
+\item Preference is given to those who have submitted the fewest jobs
+\item Prevents a single user from ``blocking'' subsequent job submissions of
+      other users
+\item Allocations can be requested via a batch job or interactively
+\item Partitions or queues are used to distinguish resources by type and the
+      maximum run time
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{M2 Partitions (Queues)}
+
+\end{frame}
+
+\section{Using sbatch}
+
+\begin{frame}
+\frametitle{Example Serial Job}
+\inputminted{bash}{examples/matlab/serial.sbatch}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example Parallel Job}
+\inputminted{bash}{examples/cfour/parallel.sbatch}
+\end{frame}
+
+\section{Using srun}
+
+\end{document}
+
